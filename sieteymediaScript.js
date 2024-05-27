@@ -1,24 +1,24 @@
 // VARIABLES DE ALMACENAMIENTO Y AUDIO
-const soundShuffling: HTMLAudioElement = new Audio("sounds/shuffling.mp3");
-const flipCard: HTMLAudioElement = new Audio("/sounds/flipcard.mp3");
+const soundShuffling = new Audio("/sounds/shuffling.mp3");
+const flipCard = new Audio("/sounds/flipcard.mp3");
 const gameOff = new Audio("/sounds/gameoff.mp3");
 const music = new Audio("/sounds/gameMusic.mp3");
 const positiveA = new Audio("/sounds/positiveA.mp3");
 const positiveB = new Audio("/sounds/positiveB.mp3");
 const positiveC = new Audio("/sounds/positiveC.mp3");
 
-let playerScore: number = 0;
+let playerScore = 0;
 let cards = [
-  document.getElementById("1") as HTMLImageElement,
-  document.getElementById("2") as HTMLImageElement,
-  document.getElementById("3") as HTMLImageElement,
-  document.getElementById("4") as HTMLImageElement,
-  document.getElementById("5") as HTMLImageElement,
-  document.getElementById("6") as HTMLImageElement,
-  document.getElementById("7") as HTMLImageElement,
-  document.getElementById("8") as HTMLImageElement,
-  document.getElementById("9") as HTMLImageElement,
-  document.getElementById("10") as HTMLImageElement,
+  document.getElementById("1"),
+  document.getElementById("2"),
+  document.getElementById("3"),
+  document.getElementById("4"),
+  document.getElementById("5"),
+  document.getElementById("6"),
+  document.getElementById("7"),
+  document.getElementById("8"),
+  document.getElementById("9"),
+  document.getElementById("10"),
 ];
 
 // ELEMENTOS DEL DOM
@@ -37,9 +37,9 @@ const gameOverPanel = document.getElementById("giveUp-panel");
 
 /* playACard obtiene una carta aleatoria de cards y se la entrega a la 
 función showPlayedCard */
-function playACard(): void {
+function playACard() {
   const randomIndex = Math.floor(Math.random() * cards.length);
-  const randomCard: HTMLImageElement = cards[randomIndex];
+  const randomCard = cards[randomIndex];
 
   showPlayedCard(randomCard);
   scorePanel();
@@ -48,8 +48,8 @@ function playACard(): void {
 /* showPlayedCard pinta la carta sobre el tablero, 
 - pasa a deleteCard() la carta creada para que la elimine y 
 - pasa a updatePlayerScore() la carta para que actualize playerScore con su valor */
-function showPlayedCard(randomCard: HTMLImageElement): void {
-  const showCard: HTMLImageElement = document.createElement("img");
+function showPlayedCard(randomCard) {
+  const showCard = document.createElement("img");
   showCard.src = randomCard.src;
   showCard.alt = randomCard.alt;
   showCard.classList.add("played-card");
@@ -63,13 +63,13 @@ function showPlayedCard(randomCard: HTMLImageElement): void {
 }
 
 // updatePlayerScore actualiza playerScore con las reglas de valores de las cartas
-function updatePlayerScore(randomCard: HTMLImageElement) {
-  let cardId: number = parseInt(randomCard.id);
+function updatePlayerScore(randomCard) {
+  let cardId = parseInt(randomCard.id);
   cardId > 7 ? (playerScore += 0.5) : (playerScore += cardId);
 }
 
 // scorePanel verifica la puntuación y actúa sobre la partida.
-function scorePanel(): void {
+function scorePanel() {
   if (scoreDisplay instanceof HTMLHeadingElement) {
     scoreDisplay.innerText = `Puntuación: ${playerScore}`;
   }
@@ -88,7 +88,7 @@ function scorePanel(): void {
 
 /* deleteCard elimina la randomCard del array cards para que no se repita más.
 También elimina el <img> que contiene dicha carta. */
-function deleteCard(randomCard: HTMLImageElement): void {
+function deleteCard(randomCard) {
   const idToDelete = randomCard.id;
   const indexToDelete = cards.findIndex((card) => card.id === idToDelete);
 
@@ -107,7 +107,7 @@ function deleteCard(randomCard: HTMLImageElement): void {
 }
 
 /* gameOver detiene la partida en función de la puntuación actual. */
-function gameOver(message: string): void {
+function gameOver(message) {
   disabledButtons();
   music.pause();
   const gameOverDiv = document.getElementById("gameOver");
@@ -135,15 +135,15 @@ function gameOver(message: string): void {
 
 /* iGiveUp detiene la partida y muestra el panel <div> correspondiente de plantarse
 con el mensaje apropiado según la puntuación obtenida. */
-function iGiveUp(): void {
+function iGiveUp() {
   disabledButtons();
   music.pause();
   const plantarseDiv = document.getElementById("giveUp-panel");
   const newGameButton3 = document.getElementById("newGame-button-C");
   const texto = document.getElementById("textoPlantarse");
-  const messageA: string = `Has sido muy conservador.<br>Te has plantado con ${playerScore} puntos.`;
-  const messageB: string = `Te ha entrado el canguelo, ¿eh?<br>Te has plantado con ${playerScore} puntos.`;
-  const messageC: string = `Casi casi...<br>Te has plantado con ${playerScore} puntos.`;
+  const messageA = `Has sido muy conservador.<br>Te has plantado con ${playerScore} puntos.`;
+  const messageB = `Te ha entrado el canguelo, ¿eh?<br>Te has plantado con ${playerScore} puntos.`;
+  const messageC = `Casi casi...<br>Te has plantado con ${playerScore} puntos.`;
 
   if (
     plantarseDiv instanceof HTMLDivElement &&
@@ -174,10 +174,10 @@ function iGiveUp(): void {
 /* whatIf muestra la carta que podía haber salido de seguir jugando.
 Similar a showPlayedCard, añadiendo una clase de CSS distinta a la carta
 en el panel <div> correspondiente. */
-function whatIf(): void {
+function whatIf() {
   const randomIndex = Math.floor(Math.random() * cards.length);
-  const randomCard: HTMLImageElement = cards[randomIndex];
-  const showCard: HTMLImageElement = document.createElement("img");
+  const randomCard = cards[randomIndex];
+  const showCard = document.createElement("img");
   showCard.src = randomCard.src;
   showCard.alt = randomCard.alt;
   showCard.classList.add("whatIfCard");
@@ -204,14 +204,14 @@ const newGame = () => {
 };
 
 /* Habilidad o deshabilita la música de fondo */
-function playMusic(): void {
+function playMusic() {
   music.paused
     ? (music.play(), (music.volume = 0.5), (music.loop = true))
     : music.pause();
 }
 
 // Shuffle es una animación que simula barajar las cartas
-function shuffle(): void {
+function shuffle() {
   if (cardBoard instanceof HTMLDivElement) {
     cardBoard.classList.remove("card-board");
     // Asi obligo al navegador a reiniciar la animación
@@ -222,7 +222,7 @@ function shuffle(): void {
 }
 
 /* disabledButtons inhabilita algunos botones de la interfaz */
-function disabledButtons(): void {
+function disabledButtons() {
   if (
     shuffleButton instanceof HTMLButtonElement &&
     giveMeButton instanceof HTMLButtonElement &&
