@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="/sieteymediaStyles.css" />
+        <link rel="icon" type="image/svg+xml" href="/img/icon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Javilonedev > 7 &frac12; </title>
+    </head>
+    <body>
+        <div id="app">
+        <audio src="/sounds/shuffling.mp3" autoplay></audio>
+        <h1 class="game-title">SIETE &frac12;</h1>
+        <h2 class="score" id="score">Puntuación:</h2>
+        <div class="option-menu">
+            <button class="newGame-button" id="newGame-button">Nueva Partida</button>
+            <button class="shuffle-button" id="shuffle-button">Barajar</button>
+            <button class="giveMe-button" id="giveMe-button">Pedir carta</button>
+            <button class="giveUp-button" id="giveUp-button">Plantarse</button>
+        </div>
+        <div class="board">
+            <div class="card-board" id="card-board"> <img class="carta" id="1" src="/img/cards/1_as-copas.jpg" alt="Carta as de copas" />
+                <img class="carta" id="2" src="/img/cards/2_dos-copas.jpg" alt="Carta dos de copas" />
+                <img class="carta" id="3" src="/img/cards/3_tres-copas.jpg" alt="Carta tres de copas" />
+                <img class="carta" id="4" src="/img/cards/4_cuatro-copas.jpg" alt="Carta cuatro de copas" />
+                <img class="carta" id="5" src="/img/cards/5_cinco-copas.jpg" alt="Carta cinco de copas" />
+                <img class="carta" id="6" src="/img/cards/6_seis-copas.jpg" alt="Carta seis de copas" />
+                <img class="carta" id="7" src="/img/cards/7_siete-copas.jpg" alt="Carta siete de copas" />
+                <img class="carta" id="8" src="/img/cards/10_sota-copas.jpg" alt="Carta sota de copas" />
+                <img class="carta" id="9" src="/img/cards/11_caballo-copas.jpg" alt="Carta caballo de copas" />
+                <img class="carta" id="10" src="/img/cards/12_rey-copas.jpg" alt="Carta rey de copas" />
+                <img class="carta" id="boca-abajo" src="/img/cards/back.jpg" alt="Carta boca abajo" />
+            </div>
+            <div class="play-board" id="play-board"></div>
+        </div>
+        <div class="gameOverPanelOff" id="gameOver">
+            <p id="gameOverMessage"></p>
+            <button class="newGame-button" id="newGame-button-B">Nueva Partida</button>
+        </div>
+        <div class="giveUpPanelOff" id="giveUp-panel">
+            <p class="giveUpText" id="textoPlantarse"></p>
+            <button class="newGame-button" id="newGame-button-C">Nueva Partida</button>
+            <p class="whatIfText">¿Quieres saber qué habría pasado en la siguiente jugada?</p>
+            <button class="newGame-button" id="whatIf">Probar a ver</button>
+        </div>
+        <div id="musicBar" class="musicBar">
+        <img id="musicIcon" class="musicIcon" src="/img/icons/musicIcon.svg" alt="music icon"/>
+        <p>
+            <a href="https://www.freepik.es/foto-gratis/textura-cuero-fondo_1161617.htm#fromView=image_search_similar&page=1&position=32&uuid=bd77830c-7973-450b-b061-36a9d271e6d8" alt="_blank">
+                Imagen de fondo en Freepik
+            </a>
+        </p>
+        <p>Sound Effect by
+            <a  href="https://pixabay.com/es/users/ncone-34430863/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192098">
+                Sean Mendoza
+            </a>
+            from
+            <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=192098">
+            Pixabay
+            </a>
+        </p>
+        <p>Creado con ❤️ por Javier López Lara</p>
+        </div>
+    </div>
+    <script src="/sieteymediaScript.ts"></script>
+    </body>
+</html>
