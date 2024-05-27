@@ -1,11 +1,11 @@
 // VARIABLES DE ALMACENAMIENTO Y AUDIO
-const soundShuffling: HTMLAudioElement = new Audio("src/shuffling.mp3");
-const flipCard: HTMLAudioElement = new Audio("src/sounds/flipcard.mp3");
-const gameOff = new Audio("src/sounds/gameoff.mp3");
-const music = new Audio("src/sounds/gameMusic.mp3");
-const positiveA = new Audio("src/sounds/positiveA.mp3");
-const positiveB = new Audio("src/sounds/positiveB.mp3");
-const positiveC = new Audio("src/sounds/positiveC.mp3");
+const soundShuffling: HTMLAudioElement = new Audio("sounds/shuffling.mp3");
+const flipCard: HTMLAudioElement = new Audio("/sounds/flipcard.mp3");
+const gameOff = new Audio("/sounds/gameoff.mp3");
+const music = new Audio("/sounds/gameMusic.mp3");
+const positiveA = new Audio("/sounds/positiveA.mp3");
+const positiveB = new Audio("/sounds/positiveB.mp3");
+const positiveC = new Audio("/sounds/positiveC.mp3");
 
 let playerScore: number = 0;
 let cards = [
